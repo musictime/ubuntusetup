@@ -1,9 +1,9 @@
 #!/bin/bash
 
+#set -o errexit #need to test
+
 #display to 1280 x 720
 sed -i 's/#disable_overscan/disable_overscan/g' /boot/config.txt
-
-# I need to check whether it is right or not.
 sed -i 's/#framebuffer_width=/framebuffer_width=1280  # /g' /boot/config.txt
 sed -i 's/#framebuffer_height=/framebuffer_height=720  # /g' /boot/config.txt
 
