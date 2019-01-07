@@ -10,6 +10,7 @@
 #send		Sending a reply to your program.
 #interact	Allowing you in interact with your program.
 
+
 set prompt "#"
 
 # lindex — Retrieve an element from a list
@@ -68,7 +69,16 @@ sleep 1
 
 
 send "quit\r"
+
 expect eof
 
-
+sleep 8
+spawn /bin/bash
+expect -re "chans"
+send "pacmd set-default-sink bluez_sink.36_42_56_3B_D8_08\n"
+sleep 1
+expect -re "chans"
+send "amixer -D pulse sset Master 50%\n"
+sleep 1
+#expect -re "chans"
 
